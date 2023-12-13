@@ -55,13 +55,13 @@ const teamContainerEl = document.getElementById('team')
 
 
 for (let i = 0; i < team.length; i++) {
-    
+
     const member = team[i];
 
     const memberEl = document.createElement('div');
 
     memberEl.classList.add('card');
-    
+
     memberEl.append(member);
 
     memberEl.addEventListener('click', function (click) {
@@ -69,9 +69,52 @@ for (let i = 0; i < team.length; i++) {
         memberEl.style.backgroundColor = 'yellow';
         memberEl.style.color = 'blue';
         memberEl.style.fontSize = '3rem';
+        console.log(click.target, this);
+
+        this.classList.toggle('bg-primary');
     })
 
     teamContainerEl.appendChild(memberEl);
-    
+
 }
+
+document.getElementById('addMember').addEventListener('submit', function(e){
+    e.preventDefault()
+
+    const newNameMember = document.getElementById('name').value
+
+    console.log(newNameMember);
+
+    const newSurnameMember = document.getElementById('surname').value
+
+    console.log(newSurnameMember);
+
+    const aggiungi = newNameMember + " " + newSurnameMember;
+
+    console.log(aggiungi);
+
+    const memberEl = document.createElement('div');
+
+    memberEl.classList.add('card');
+
+    memberEl.append(aggiungi);
+
+    memberEl.addEventListener('click', function (click) {
+
+        memberEl.style.backgroundColor = 'yellow';
+        memberEl.style.color = 'blue';
+        memberEl.style.fontSize = '3rem';
+        console.log(click.target, this);
+
+        this.classList.toggle('bg-primary');
+    })
+
+    teamContainerEl.appendChild(memberEl);
+
+    document.getElementById('name').value = ''
+    document.getElementById('surname').value = ''
+
+})
+
+
 
