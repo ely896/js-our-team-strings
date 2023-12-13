@@ -16,18 +16,62 @@ console.log('funziona');
 
 //crea array di stringhe con i nome dei membri del team
 
-const membersTeam = ['Wayne Barnett', 'Angela Caroll', 'Walter Gordon', 'Angela Lopez', 'Scott Estrada', 'Barbara Ramos'];
+const team = ['Wayne Barnett', 'Angela Caroll', 'Walter Gordon', 'Angela Lopez', 'Scott Estrada', 'Barbara Ramos'];
 
-console.log(membersTeam);
+console.log(team);
 
 //MILESTONE 1:
 //Stampare le informazioni su DOM come card.
 
-`<div class="card">
-<div class="card-body">
-    nome membro del team
-</div>`
+
+/*
+const teamContainerEl = document.getElementById('team')
 
 
+for (let i = 0; i < team.length; i++) {
+    
+    const member = team[i];
 
-  
+    const memberEl = document.createElement('div')
+
+    memberEl.classList.add('card');
+
+    memberEl.append(member)
+
+    teamContainerEl.appendChild(memberEl)
+    
+}
+*/
+/*
+MILESTONE 3:
+Aggiungere un evento click sulla card che aggiunge/rimuove una classe per evidenziare un componente del team.
+BONUS 1:
+In generale curare la parte di UI e organizzare i singoli membri in card/schede.
+BONUS 2:
+Inserire un form per l’aggiunta di un elemento alla lista.
+*/
+
+const teamContainerEl = document.getElementById('team')
+
+
+for (let i = 0; i < team.length; i++) {
+    
+    const member = team[i];
+
+    const memberEl = document.createElement('div');
+
+    memberEl.classList.add('card');
+    
+    memberEl.append(member);
+
+    memberEl.addEventListener('click', function (click) {
+
+        memberEl.style.backgroundColor = 'yellow';
+        memberEl.style.color = 'blue';
+        memberEl.style.fontSize = '3rem';
+    })
+
+    teamContainerEl.appendChild(memberEl);
+    
+}
+
